@@ -3,15 +3,16 @@ package main
 import "fmt"
 
 func main() {
-	//Вывести все квадраты натуральных чисел, не превосходящие данного числа N.
-	//Например, если N = 50, то на экран должен быть выведен ряд 1 4 9 16 25 36 49
+	//Вывести на экран кубы чисел от A до B, которые вводит пользователь.
+	var A int
+	var B int
+	fmt.Println("Введите число A: ")
+	fmt.Scan(&A)
+	fmt.Println("Введите число B: ")
+	fmt.Scan(&B)
 
-	n := 50
-
-	for i := 1; i < n; i++ {
-		qadrat := i * i
-		if qadrat <= n {
-			fmt.Println(qadrat)
-		}
+	for i := A; i <= B; i++ {
+		cub := i * i * i
+		fmt.Println(cub)
 	}
 }
