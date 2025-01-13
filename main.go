@@ -1,17 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
-	//Вывести все квадраты натуральных чисел, не превосходящие данного числа N.
-	//Например, если N = 50, то на экран должен быть выведен ряд 1 4 9 16 25 36 49
-
-	n := 50
-
-	for i := 1; i < n; i++ {
-		qadrat := i * i
-		if qadrat <= n {
-			fmt.Println(qadrat)
-		}
-	}
+	//Написать программу, которая возводит число в целочисленную степень. Число и степень вводятся с клавиатуры.
+	var chislo, stepen int
+	fmt.Println("Введите число: ")
+	fmt.Scan(&chislo)
+	fmt.Println("Введите степень: ")
+	fmt.Scan(&stepen)
+	result := math.Pow(float64(stepen), float64(chislo)) //хз почему оно хуево степень считает
+	fmt.Println("Число ", chislo, " в степени ", stepen, " = ", result)
 }
