@@ -1,36 +1,22 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-//Написать программу, подсчитывающую количество четных и нечетных цифр числа.
-//
-//Описание переменных:
-//
-//even - количество четных цифр
-//uneven - количество нечетных цифр
+//Напишите программу, которая считает количество элементов (пар ключ-значение) в карте.
 
 func main() {
-	var chislo int
-	fmt.Println("Введите число: ")
-	fmt.Scan(&chislo)
-	even := 0
-	uneven := 0
 
-	for chislo != 0 {
-		num := chislo % 10
-		if num%2 == 0 {
-			even++
-		}
-		if num%2 != 0 {
-			uneven++
-		}
-		fmt.Println(num)
-		chislo /= 10
-		//fmt.Println(chislo)
+	var massiv = map[string]int{
+		"One":   1,
+		"Two":   2,
+		"Three": 3,
+		"Four":  4,
+		"Five":  5,
+		"Ein":   4}
+	n := 0
+
+	for i := 0; i < len(massiv); i++ {
+		n++
 	}
-	fmt.Println("Сумма четных чисел: ", even)
-	fmt.Println("Сумма нечетных чисел: ", uneven)
-
+	fmt.Println("В массиве ", n, "пар ключ-значение")
 }
