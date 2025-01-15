@@ -21,10 +21,10 @@ func main() {
 	for chislo != 0 {
 		num := chislo % 10
 		if num%2 == 0 {
-			even += num
+			even++
 		}
 		if num%2 != 0 {
-			uneven += num
+			uneven++
 		}
 		fmt.Println(num)
 		chislo /= 10
