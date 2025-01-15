@@ -2,26 +2,25 @@ package main
 
 import "fmt"
 
-//Напишите функцию, которая создаёт "обратную" карту. Например, из карты вида {"a": 1, "b": 2, "c": 2} сделайте карту вида {1: ["a"], 2: ["b", "c"]}.
+//Реализуйте функцию, которая принимает карту и пороговое значение. Возвращайте новую карту, содержащую только те элементы, где значение больше порога.
 
 func main() {
 
 	var massiv = map[string]float32{
-		"Milk":  100,
-		"Cooke": 2540,
-		"Cofie": 321,
-		"Tea":   405,
+		"Milk":  10,
+		"Cooke": 20,
+		"Cofie": 30,
+		"Tea":   40,
 		"Fish":  51}
 	fmt.Println("Старый массив: ", massiv)
 
-	var n float32
-	var s string
-	slice := map[float32]string{}
+	slice := map[string]float32{}
 
 	for i := range massiv {
-		n = massiv[i]
-		s = i
-		slice[n] = s
+		for massiv[i] > 30 {
+			slice[i] = massiv[i]
+			break
+		}
 	}
-	fmt.Println("Новый массив: ", slice)
+	fmt.Println("Массив после порогового значения: ", slice)
 }
