@@ -29,3 +29,29 @@ func main() {
 	slice := returnMap(massiv, n)
 	fmt.Println("Массив после порогового значения: ", slice)
 }
+
+//Напишите функцию, которая создаёт "обратную" карту. Например, из карты вида {"a": 1, "b": 2, "c": 2} сделайте карту вида {1: ["a"], 2: ["b", "c"]}.
+// TODO: исправить поведение со значениями-дублями
+func reverseMap() {
+	// TODO: исправить имена переменных, например sourceMap, res(result)
+	var massiv = map[string]float32{
+		"Milk":   100,
+		"Cooke":  2540,
+		"Cofie":  321,
+		"Tea":    405,
+		"Fish":   51,
+		"BlaBla": 321}
+	fmt.Println("Старый массив: ", massiv)
+
+	var n float32
+	var s string
+	slice := map[float32]string{}
+
+	// не забывать, что есть удобный синтаксис for k, v := range ... (key, value)
+	for i := range massiv {
+		n = massiv[i]
+		s = i
+		slice[n] = s
+	}
+	fmt.Println("Новый массив: ", slice)
+}
