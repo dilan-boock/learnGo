@@ -55,3 +55,23 @@ func reverseMap() {
 	}
 	fmt.Println("Новый массив: ", slice)
 }
+
+//Реализуйте функцию, которая принимает карту с названиями продуктов и их ценами, а также скидку в процентах. Функция должна обновлять карту, уменьшая все цены на заданный процент.
+
+func discounts() {
+	var massiv = map[string]float32{
+		"Milk":  100,
+		"Cooke": 2540,
+		"Cofie": 321,
+		"Tea":   405,
+		"Fish":  51}
+	var n float32
+
+	discount := 10
+	for i := range massiv { // todo исправить на for k, v :=
+		n = massiv[i]
+		massiv[i] = n / 100 * (100 - discount) // TODO исправить
+	}
+
+	fmt.Println("Новый список цен: ", massiv)
+}
