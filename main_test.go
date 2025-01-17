@@ -23,20 +23,29 @@ func TestEnglish(t *testing.T) {
 		"Ein":   4}
 
 	chislo := 15
-
-	n := 0
-
+	even := 0
+	uneven := 0
 	v := 0
-	test1, err := returnMap(massiv, v)
-	test2, err := valueMap(chislo)
+	var n float32
+
+	test1, err := returnMap(massiv)
+	even, uneven, err = valueMap(even, uneven, chislo)
 	test3, err := modifyMap(massiv, n)
-	test4, err := countMap(massiv2)
+	test4, err := countMap(massiv2, v)
 
 	if err != nil {
 		t.Errorf("Should not produce an error")
+		fmt.Println("Новый массив: ", test1)
+
+		fmt.Println("Сумма четных чисел: ", even)
+		fmt.Println("Сумма нечетных чисел: ", uneven) //Подсчет колва
+
+		fmt.Println("В массиве ", test4, "пар ключ-значение") //ключ-значение
+
+		fmt.Println("Новый список цен: ", test3)
 	}
 
-	if expected != actual {
-		t.Errorf("Result was incorrect, got: %s, want: %s.", actual, expected)
+	if err == nil {
+		t.Errorf("Result was incorrect, got: %s, want: %s.", err)
 	}
 }

@@ -4,7 +4,7 @@ import "fmt"
 
 //Напишите функцию, которая создаёт "обратную" карту. Например, из карты вида {"a": 1, "b": 2, "c": 2} сделайте карту вида {1: ["a"], 2: ["b", "c"]}
 
-func returnMap(massiv map[string]float32) map[float32]string {
+func returnMap(massiv map[string]float32) (map[float32]string, error) {
 	var n float32
 	var s string
 	slice := map[float32]string{}
@@ -14,12 +14,10 @@ func returnMap(massiv map[string]float32) map[float32]string {
 		s = i
 		slice[n] = s
 	}
-	return slice
+	return slice, error()
 }
 
-func valueMap(chislo int) (int, int) {
-	even := 0
-	uneven := 0
+func valueMap(even int, uneven int, chislo int) (int, int, error) {
 
 	for chislo != 0 {
 		num := chislo % 10
@@ -33,41 +31,29 @@ func valueMap(chislo int) (int, int) {
 		chislo /= 10
 		//fmt.Println(chislo)
 	}
-	return even, uneven
+	return even, uneven, error()
 }
 
-func modifyMap(massiv map[string]float32, n float32) map[string]float32 {
+func modifyMap(massiv map[string]float32, v float32) (map[string]float32, error) {
 
 	for i := 0; i < len(massiv); i++ {
-		n++
+		v++
 		for i := range massiv {
-			n = massiv[i]
-			massiv[i] = n - (n/100)*10
+			v = massiv[i]
+			massiv[i] = v - (v/100)*10
 		}
 	}
-	return massiv
+	return massiv, error()
 }
 
-func countMap(massiv2 map[string]int, v int) int {
+func countMap(massiv2 map[string]int, v int) (int, error) {
 
 	for i := 0; i < len(massiv2); i++ {
 		v++
 	}
-	return v
+	return v, error()
 }
 
 func main() {
 
-	slice := returnMap(massiv)
-	fmt.Println("Новый массив: ", slice)
-
-	even, uneven := valueMap(chislo)
-	fmt.Println("Сумма четных чисел: ", even)
-	fmt.Println("Сумма нечетных чисел: ", uneven) //Подсчет колва
-
-	n := countMap(massiv2)
-	fmt.Println("В массиве ", n, "пар ключ-значение") //ключ-значение
-
-	massivRes := modifyMap(massiv)
-	fmt.Println("Новый список цен: ", massivRes)
 }
