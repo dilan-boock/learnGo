@@ -14,7 +14,7 @@ func returnMap(massiv map[string]float32) (map[float32]string, error) {
 		s = i
 		slice[n] = s
 	}
-	return slice, error()
+	return slice, nil
 }
 
 func valueMap(even int, uneven int, chislo int) (int, int, error) {
@@ -31,7 +31,7 @@ func valueMap(even int, uneven int, chislo int) (int, int, error) {
 		chislo /= 10
 		//fmt.Println(chislo)
 	}
-	return even, uneven, error()
+	return even, uneven, nil
 }
 
 func modifyMap(massiv map[string]float32, v float32) (map[string]float32, error) {
@@ -43,7 +43,7 @@ func modifyMap(massiv map[string]float32, v float32) (map[string]float32, error)
 			massiv[i] = v - (v/100)*10
 		}
 	}
-	return massiv, error()
+	return massiv, nil
 }
 
 func countMap(massiv2 map[string]int, v int) (int, error) {
@@ -51,9 +51,49 @@ func countMap(massiv2 map[string]int, v int) (int, error) {
 	for i := 0; i < len(massiv2); i++ {
 		v++
 	}
-	return v, error()
+	return v, nil
 }
 
 func main() {
+	fmt.Println("Подсчёт частоты элементов")
+	input := []string{"apple", "banana", "apple", "orange", "banana", "apple"}
+	fmt.Println("input: ", input)
+	output := periodMap(input)
+	fmt.Println("output: ", output)
 
+	fmt.Println("\nОбъединение двух map")
+	map1 := map[int]int{1: 10, 2: 20, 3: 30}
+	map2 := map[int]int{2: 15, 3: 35, 4: 40}
+	fmt.Println("map1: ", map1)
+	fmt.Println("map2: ", map2)
+	output2 := mergeMap(map1, map2)
+	fmt.Println("output: ", output2)
+
+	fmt.Println("\nПроверка на подмножество")
+	map3 := map[string]int{"a": 3, "b": 5, "c": 2}
+	map4 := map[string]int{"a": 2, "b": 4}
+	fmt.Println("map1: ", map3)
+	fmt.Println("map2: ", map4)
+	output3 := subsetMap(map3, map4)
+	fmt.Println("output: ", output3)
+
+	fmt.Println("\nГруппировка по длине строки")
+	input2 := []string{"cat", "dog", "apple", "bat", "pear", "down"}
+	fmt.Println("input: ", input2)
+	output4 := lenghtMap(input2)
+	fmt.Println("output: ", output4)
+
+	fmt.Println("\nНайти максимальное значение")
+	input3 := map[string]int{"a": 10, "b": 20, "c": 15}
+	fmt.Println("input: ", input3)
+	outputKey, outputNum := maxMap(input3)
+	fmt.Println("output: ", "'", outputKey, "',", outputNum)
+
+	fmt.Println("\nСравнение двух map")
+	map5 := map[string]int{"a": 1, "b": 2, "c": 3}
+	map6 := map[string]int{"a": 1, "b": 2, "c": 3}
+	fmt.Println("map1: ", map5)
+	fmt.Println("map2: ", map6)
+	output5 := comparisonMap(map5, map6)
+	fmt.Println("output: ", output5)
 }
